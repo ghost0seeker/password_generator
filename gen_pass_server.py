@@ -39,6 +39,13 @@ def pass_gen(num_bytes):
         password.append(select_function(special, read_urandom(num_bytes)))
 
     return(''.join(password))
+
+@app.get("/json")
+def get_json():
+
+    message = pass_gen(random.randint(10, 100))
+
+    return {"password": message, "status": "success"}
     
 
 @app.get("/", response_class=HTMLResponse)
