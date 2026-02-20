@@ -12,13 +12,17 @@ special = ['!', '@', '#', '&', '%', '$', '*', '+', '=', '?']
 digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def select_function(array, seed):
+    
     rng = random.Random(seed)
-    return rng.choice(array)
+    result = rng.choice(array) 
+    x = 2
+    return result
 
 def read_urandom(num_bytes):
     with open("/dev/urandom", 'rb') as f:
-        return int.from_bytes(f.read(num_bytes), 'big')
-        # print(int.from_bytes(f.read(num_bytes), 'big'))
+        large_int = int.from_bytes(f.read(num_bytes), 'big')
+        x = 1
+        return large_int
 
 def pass_gen(num_bytes):
 
